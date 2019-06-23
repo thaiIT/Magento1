@@ -45,13 +45,6 @@ class MGS_Shipped_Model_Observer
         return $found;
     }
 
-    protected function _callProtectedMethod($object, $methodName) {
-        $reflection = new ReflectionClass($object);
-        $method = $reflection->getMethod($methodName);
-        $method->setAccessible(true);
-        return $method->invoke($object);
-    }
-
     protected function _prepareColumnsSaleOrderGrid(&$grid, $place = 'order', $after = 'grand_total')
     {
     	if (!$this->_isControllerName($place)) {
